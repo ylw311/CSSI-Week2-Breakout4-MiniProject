@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+  <title>Travel Library</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet'
+    href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <!-- Bulma Version 0.9.0-->
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/hero.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300&family=Cormorant+SC:wght@600&family=Old+Standard+TT&display=swap');
+  </style>
+</head>
+
+<body>
+  <section id="header" class="hero is-primary is-small">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <p class="title">
+          Travel Library
+        </p>
+        <p class="subtitle">
+          Browse below, and find something a destination!
+        </p>
+      </div>
+    </div>
+  </section>
+  <section id="shopping_cart_container" class="container">
+    <div class="columns is-centered">
+      <div className="column is-half">
+        <div class="box">
+          <p>
+            <span class="tag is-primary">Saved/Liked</span>
+          </p>
+          <p>
+            (Your favourite travel saveds can be saved here)</p>
+          <br>
+          <div id="cart"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container">
+    <div class="columns features">
+      <div id="northAmerica" class="column is-4">
+        <div class="card is-shady item">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Location_North_America.svg/220px-Location_North_America.svg.png"
+                alt="Placeholder image" class="modal-button cont" data-target="modal-image-scifi">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <h4>North America</h4>
+              <p>North America is a continent in the Northern Hemisphere and almost entirely within the Western
+                Hemisphere. It is bordered to the north by the Arctic Ocean, to the east by the Atlantic Ocean, to the
+                southeast by South America and the Caribbean Sea, and to the west and south by the Pacific Ocean.</p>
+              <span onClick='updateDestination("NA")' class="button is-fullwidth is-primary modal-button"
+                data-target="modal-card-scifi">Browse North America</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="southAmerica" class="column is-4">
+        <div class="card is-shady item">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/South_America_%28orthographic_projection%29.svg/220px-South_America_%28orthographic_projection%29.svg.png"
+                alt="Mystery novels" class="modal-button cont" data-target="modal-image-mystery">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <h4>South America</h4>
+              <p>South America is a continent entirely in the Western Hemisphere and mostly in the Southern Hemisphere,
+                with a relatively small portion in the Northern Hemisphere. It can also be described as the southern
+                subregion of a single continent called America</p>
+              <span onClick='updateDestination("SA")'class="button is-fullwidth is-link modal-button" data-target="modal-card-mystery">Browse South
+                America</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="europe" class="column is-4">
+        <div class="card is-shady">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Europe_orthographic_Caucasus_Urals_boundary.svg/220px-Europe_orthographic_Caucasus_Urals_boundary.svg.png"
+                alt="Placeholder image" class="modal-button cont" data-target="modal-image-historical-fiction">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <h4>Europe</h4>
+              <p>Europe is a continent, also recognised as a part of Eurasia, located entirely in the Northern
+                Hemisphere and mostly in the Eastern Hemisphere. Comprising the westernmost peninsulas of Eurasia, it
+                shares the continental landmass of Afro-Eurasia with both Asia and Africa.
+              </p>
+              <span onClick ='updateDestination("EU")' class="button is-fullwidth is-primary modal-button"
+                data-target="modal-card-historical-fiction">Browse Europe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns features">
+      <!--       beginning of asia -->
+      <div id="asia" class="column is-4">
+        <div class="card is-shady">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Asia_%28orthographic_projection%29.svg/220px-Asia_%28orthographic_projection%29.svg.png"
+                alt="Placeholder image" class="modal-button cont" data-target="modal-image-nonfiction">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <h4>Asia</h4>
+              <p>Asia is Earth's largest and most populous continent, located primarily in the Eastern and Northern
+                Hemispheres. It shares the continental landmass of Eurasia with the continent of Europe, and the
+                continental landmass of Afro-Eurasia with Africa and Europe.</p>
+              <span onClick ='updateDestination("AS")' class="button is-fullwidth is-link modal-button" data-target="modal-card-nonfiction">Browse
+                Asia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--       end of asia, beginning of africa -->
+      <div id="africa" class="column is-4">
+        <div class="card is-shady">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Africa_%28orthographic_projection%29_blank.svg/220px-Africa_%28orthographic_projection%29_blank.svg.png"
+                alt="butterfly image" class="modal-button cont" data-target="modal-image-comedy">
+            </figure>
+          </div>
+          <div class="card-content modal-button" data-target="modal-card2">
+            <div class="content">
+              <h4>Africa</h4>
+              <p>Africa is the world's second-largest and second-most populous continent, after Asia in both cases. At
+                about 30.3 million km² including adjacent islands, it covers 6% of Earth's total surface area and 20% of
+                its land area. With 1.4 billion people as of 2021, it accounts for about 18% of the world's human
+                population. </p>
+              <span onClick = 'updateDestination("AF")' class="button is-fullwidth is-link modal-button" data-target="modal-card-comedy">Browse
+                Africa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--       end of africa, beginning of oceania -->
+      <div id="oceania" class="column is-4">
+        <div class="card is-shady">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Oceania_%28orthographic_projection%29.svg/200px-Oceania_%28orthographic_projection%29.svg.png"
+                alt="butterfly image" class="modal-button cont" data-target="modal-image-oceania">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <h4>Oceania</h4>
+              <p>Oceania is a geographical region that includes Australasia, Melanesia, Micronesia, and Polynesia.
+                Spanning the Eastern and Western hemispheres, Oceania is estimated to have a land area of 8,525,989
+                square kilometres and a population of over 41 million.</p>
+              <span onClick ='updateDestination("OC")' class="button is-fullwidth is-link modal-button" data-target="modal-card-oceania">Browse
+                Oceania</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--       end of oceania -->
+    </div>
+  </section>
+  <footer>
+    <div class="content has-text-centered">
+      <div class="control level-item">
+        <a href="https://github.com/BulmaTemplates/bulma-templates">
+
+        </a>
+      </div>
+    </div>
+  </footer>
+  <!--  ===============
+    HERE BE MODALS
+    ===============  -->
+
+  <!-- NORTH AMERICA -->
+  <div id="modal-image-scifi" class="modal modal-fx-3dSlit">
+    <div class="modal-background"></div>
+    <div class="modal-content is-huge is-image">
+      <!-- content -->
+      <img    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Location_North_America.svg/220px-Location_North_America.svg.png"
+        alt="image">
+      <!-- end content -->
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <div id="modal-card-scifi" class="modal modal-fx-3dSlit">
+    <div class="modal-background"></div>
+    <div class="modal-content is-large">
+      <!-- content -->
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-16by9">
+            <img class='naImage' src='' alt=''>
+          </figure>
+          </figure>
+        </div>
+        <div class='card-content'>
+          <div class='media'>
+            <div class='media-content'>
+              <p class='naTitle title is-4'></p>
+            </div>
+          </div>
+          <div class='content'>
+            <p class='naDescription'></p>
+            <button onclick="saved ('Three Body Problem by Cixin Liu')">Add To Cart</button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- end content -->
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+  <!-- SOUTH AMERICA -->
+  <div id="modal-image-mystery" class="modal modal-fx-3dSlit">
+    <div class="modal-background"></div>
+    <div class="modal-content is-huge is-image">
+      <!-- content -->
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/South_America_%28orthographic_projection%29.svg/220px-South_America_%28orthographic_projection%29.svg.png"
+        alt="image">
+      <!-- end content -->
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <div id="modal-card-mystery" class="modal modal-fx-3dSlit">
+    <div class="modal-background"></div>
+    <div class="modal-content is-large">
+      <!-- content -->
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-16by9">
+            <img class='saImage' src='' alt=''>
+          </figure>
+          </figure>
+        </div>
+        <div class='card-content'>
+          <div class='media'>
+            <div class='media-content'>
+              <p class='saTitle title is-4'></p>
+            </div>
+          </div>
+          <div class='content'>
+            <p class='saDescription'></p>
+            <button onclick="saved ('Three Body Problem by Cixin Liu')">Add To Cart</button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- end content -->
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+  <!-- EUROPE -->
+  <div id="modal-image-historical-fiction" class="modal modal-fx-3dSlit">
+    <div class="modal-background"></div>
+    <div class="modal-content is-huge is-image">
+      <!-- content -->
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Europe_orthographic_Caucasus_Urals_boundary.svg/220px-Europe_orthographic_Caucasus_Urals_boundary.svg.png"
+        alt="image">
+      <!-- end content -->
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <div id="modal-card-historical-fiction" class="modal modal-fx-3dSlit">
+    <div class="modal-background"></div>
+    <div class="modal-content is-large">
+      <!-- content -->
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-16by9">
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/hostedimages/1533304668i/26071140.jpg"
+              alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">Europe</p>
+            </div>
+          </div>
+          <div class="content">
+            <p>
+<!--               in progress - testing something - linda -->
+<!--               calls the js function saved <a href="https://en.wikipedia.org/wiki/London"
+                  target="_blank">London</a> -->
+              <button onclick="saved ('London, UK')">Add To Cart</button>
+              <span class="has-text-weight-bold"><a href="https://en.wikipedia.org/wiki/London"
+                  target="_blank">London</a></span> <span class="has-text-weight-bold">United Kingdom</span> -
+            </p>
+            <p>
+              <button onclick="saved ('City of Tears by Kate Mosse')">Add To Cart</button>
+              <span class="has-text-weight-bold"><a href="https://en.wikipedia.org/wiki/Paris"
+                  target="_blank">Paris</a></span> <span class="has-text-weight-bold">France</span> -
+            </p>
+            <p>
+              <button onclick="saved ('Fall of Giants by Ken Follett')">Add To Cart</button>
+              <span class="has-text-weight-bold"><a href="https://en.wikipedia.org/wiki/Madrid"
+                  target="_blank">Madrid</a></span> <span class="has-text-weight-bold">Spain</span> -
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- end content -->
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+  <!-- ASIA -->
+  <div id="modal-image-nonfiction" class="modal modal-fx-3dSlit">
+    <div class="modal-background"></div>
+    <div class="modal-content is-huge is-image">
+      <!-- content -->
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Asia_%28orthographic_projection%29.svg/220px-Asia_%28orthographic_projection%29.svg.png"
+        alt="image">
+      <!-- end content -->
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <div id="modal-card-nonfiction" class="modal modal-fx-3dSlit">
+    <div class="modal-background"></div>
+    <div class="modal-content is-large">
+      <!-- content -->
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-16by9">
+            <img class='asImage' src='' alt=''>
+          </figure>
+          </figure>
+        </div>
+        <div class='card-content'>
+          <div class='media'>
+            <div class='media-content'>
+              <p class='asTitle title is-4'></p>
+            </div>
+          </div>
+          <div class='content'>
+            <p class='asDescription'></p>
+            <button onclick="saved ('Three Body Problem by Cixin Liu')">Add To Cart</button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- end content -->
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+  <!-- AFRICA -->
+  <div id="modal-image-comedy" class="modal modal-fx-3dSlit">
+    <div class="modal-background"></div>
+    <div class="modal-content is-huge is-image">
+      <!-- content -->
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Africa_%28orthographic_projection%29_blank.svg/220px-Africa_%28orthographic_projection%29_blank.svg.png"
+        alt="image">
+      <!-- end content -->
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <div id="modal-card-comedy" class="modal modal-fx-3dSlit">
+    <div class="modal-background"></div>
+    <div class="modal-content is-large">
+      <!-- content -->
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-16by9">
+            <img class='afImage' src='' alt=''>
+          </figure>
+          </figure>
+        </div>
+        <div class='card-content'>
+          <div class='media'>
+            <div class='media-content'>
+              <p class='afTitle title is-4'></p>
+            </div>
+          </div>
+          <div class='content'>
+            <p class='afDescription'></p>
+            <button onclick="saved ('Three Body Problem by Cixin Liu')">Add To Cart</button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- end content -->
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+  <!-- Oceania -->
+  <div id="modal-image-oceania" class="modal modal-fx-3dSlit">
+    <div class="modal-background"></div>
+    <div class="modal-content is-huge is-image">
+      <!-- content -->
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Oceania_%28orthographic_projection%29.svg/200px-Oceania_%28orthographic_projection%29.svg.png"
+        alt="image">
+      <!-- end content -->
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <div id="modal-card-oceania" class="modal modal-fx-3dSlit">
+    <div class="modal-background"></div>
+    <div class="modal-content is-large">
+      <!-- content -->
+     <div class="card">
+        <div class="card-image">
+          <figure class="image is-16by9">
+            <img class='ocImage' src='' alt=''>
+          </figure>
+          </figure>
+        </div>
+        <div class='card-content'>
+          <div class='media'>
+            <div class='media-content'>
+              <p class='ocTitle title is-4'></p>
+            </div>
+          </div>
+          <div class='content'>
+            <p class='ocDescription'></p>
+            <button onclick="saved ('Three Body Problem by Cixin Liu')">Add To Cart</button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- end content -->
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+
+
+
+  <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/OverlayScrollbars.min.js'></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      //The first argument are the elements to which the plugin shall be initialized
+      //The second argument has to be at least a empty object or a object with your desired options
+      OverlayScrollbars(document.querySelectorAll("body"), {});
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>

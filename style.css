@@ -1,0 +1,45 @@
+*{
+  font-family: 'Albert Sans', sans-serif;
+  font-style: bold;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background: #e0e0e6;
+}
+.column {
+  display: flex;
+}
+.columns {
+  display: flex;
+  margin-top: 0rem;
+}
+
+img {
+    object-fit: contain;
+}
+
+.cont {
+  filter: hue-rotate(2.9rad);
+}
+
+#header{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #ab98e3;
+  
+}
+
+.modal-content {
+  border-radius: 30px;
+}
+
+.buttons {
+  background: #dcd0ff;
+}
+
+#shopping_cart_container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
